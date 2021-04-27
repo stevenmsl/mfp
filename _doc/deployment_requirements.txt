@@ -1,0 +1,8 @@
+- deploy each microfrontend independently (including the container)
+  - each team is working on different apps in parallel
+- location of child app remoteEntry.js must be known at build time
+  - webpack needs to know where to load up the files for each app
+- can support deploying multiple different projects
+- use CI/CD
+- able to deal with caching issues due to the name of remoteEntry.js is fixed
+  - current webpack implementation requires a fixed name for the remote entry
