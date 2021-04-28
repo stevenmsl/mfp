@@ -1,0 +1,6 @@
+- create workflows in response to the push code event
+  - whenever code is pushed to the master branch
+    - change into the folder, for example the container folder
+    - install dependencies
+    - create a production build using webpack
+    - upload the result to AWS S3
