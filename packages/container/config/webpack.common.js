@@ -1,5 +1,6 @@
 /*
   - configuation shared both by dev and prod
+  - 
 */
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
