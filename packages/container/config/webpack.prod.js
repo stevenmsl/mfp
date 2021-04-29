@@ -24,7 +24,7 @@ const prodConfig = {
       - example
         - script src="/container/latest/main.016d89a48d1b3d244add.js" 
     */
-    publicPath: "/container/latest",
+    publicPath: "/container/latest/",
   },
   plugins: [
     new ModuleFederationPlugin({
