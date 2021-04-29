@@ -1,0 +1,19 @@
+- Permissions
+  - disable Block all public access
+    - this will not be a concern as you need to allow
+      everyone to access the page and JS files
+  - bucket policy
+    - this is required to allow CloudFront to access S3
+    {
+        "Version": "2012-10-17",
+        "Id": "Policy1619638059394",
+        "Statement": [
+            {
+                "Sid": "Stmt1619638017653",
+                "Effect": "Allow",
+                "Principal": "*",
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::mfe-dashboard-stevenmsl/*"
+            }
+        ]
+    }

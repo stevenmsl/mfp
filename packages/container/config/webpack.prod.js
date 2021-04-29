@@ -8,6 +8,7 @@ const packageJson = require("../package.json");
   - the value is defined in the Github Secrets
   - you then need to provide it to the npm build
     in the container.yml
+  - seems this not needed at all
 */
 const domain = process.env.PRODUCTION_DOMAIN;
 
@@ -23,6 +24,8 @@ const prodConfig = {
         of the main.js in the index.html script tag
       - example
         - script src="/container/latest/main.016d89a48d1b3d244add.js" 
+      - it's very important that you ave a trailing "/" at the end
+        or the JS files won't get loaded up correctly 
     */
     publicPath: "/container/latest/",
   },
@@ -32,6 +35,10 @@ const prodConfig = {
       remotes: {
         marketing: `marketing@/marketing/latest/remoteEntry.js`,
       },
+      /*
+        - multiple smaller-size JS files will be created
+          so the sharing packages can be achieved  
+      */
       shared: packageJson.dependencies,
     }),
   ],

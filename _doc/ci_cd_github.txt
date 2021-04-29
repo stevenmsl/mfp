@@ -2,5 +2,27 @@
   - whenever code is pushed to the master branch
     - change into the folder, for example the container folder
     - install dependencies
-    - create a production build using webpack
-    - upload the result to AWS S3
+    - create production builds using webpack
+    - upload the bundle to AWS S3
+
+- Secrets
+  - AWS_ACCESS_KEY_ID
+    - from AWS IAM
+  - AWS_S3_BUCKET_NAME
+    - from AWS S3
+  - AWS_SECRET_ACCESS_KEY
+    - from AWS IAM
+  - DISTRIBUTION_ID
+    - from AWS CloudFront
+  - PRODUCTION_DOMAIN
+    - from AWS CloudFront
+
+- container.yml
+  - use jakejarvis/s3-sync-action to push the code to S3
+    - DEST_DIR is container/latest not /container/latest
+    - SOURCE_DIR is packages/container/dist
+      - needs to be full path 
+  - awact/cloudfront-action
+    - SOURCE_PATH: "/container/latest/index.html"
+      - this is because the filename will remain the same 
+        in each deployment    

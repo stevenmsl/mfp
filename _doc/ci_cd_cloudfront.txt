@@ -1,0 +1,18 @@
+- Origins
+  - Origin Domain Name
+    - make sure you get this one right
+    - example
+      - mfe-dashboard-stevenmsl.s3.us-east-2.amazonaws.com
+      - notice that the region is part of the name in this
+        example
+- General
+  - Default Root Object	
+    - the value should be /container/latest/index.htm
+
+- Error Pages
+  - Code : 403
+  - Response Page Path: /container/latest/index.html
+
+- Behavior
+  - Viewer Protocol Policy
+    - Redirect HTTP to HTTPS

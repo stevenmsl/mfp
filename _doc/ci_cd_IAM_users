@@ -1,0 +1,8 @@
+- Users in Identity and Access Management (IAM) 
+  - create a user to allow GitHub to access S3 and CloudFront
+  - Permissions
+    - AmazonS3FullAccess
+    - CloudFrontFullAccess
+  - Security Credentials
+    - This is where you can find the AWS_ACCESS_KEY_ID and 
+      AWS_SECRET_ACCESS_KEY stored in Github secrets 
