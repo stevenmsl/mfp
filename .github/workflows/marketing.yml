@@ -32,7 +32,7 @@ jobs:
           DEST_DIR: "marketing/latest"
       - uses: awact/cloudfront-action@master
         env:
-          SOURCE_PATH: "/"
+          SOURCE_PATH: "/marketing/latest/remoteEntry.js"
           AWS_REGION: "us-east-2"
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
