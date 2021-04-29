@@ -1,4 +1,4 @@
-name: deploy-container2
+name: deploy-container
 
 on:
   push:
@@ -14,7 +14,7 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v2
       - run: npm install
@@ -27,13 +27,13 @@ jobs:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'us-east-2' 
-          SOURCE_DIR: 'packages/container/dist'
-          DEST_DIR: '/container/latest'
+          AWS_REGION: "us-east-2"
+          SOURCE_DIR: "packages/container/dist"
+          DEST_DIR: "/container/latest"
       - uses: awact/cloudfront-action@master
         env:
-          SOURCE_PATH: '/'
-          AWS_REGION: 'us-east-2'
+          SOURCE_PATH: "/"
+          AWS_REGION: "us-east-2"
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           DISTRIBUTION_ID: ${{ secrets.DISTRIBUTION_ID }}
