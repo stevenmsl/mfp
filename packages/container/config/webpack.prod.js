@@ -13,6 +13,13 @@ const prodConfig = {
       - use contenthash to deal with caching issue
     */
     filename: "[name].[contenthash].js",
+    /*
+      - this will be appended the path of the location
+        of the main.js in the index.html file
+      - example
+        - script src="/container/latest/main.016d89a48d1b3d244add.js" 
+    */
+    publicPath: "/container/latest",
   },
   plugins: [
     new ModuleFederationPlugin({
