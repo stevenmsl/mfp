@@ -4,6 +4,11 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const commonConfig = require("./webpack.common");
 const packageJson = require("../package.json");
 
+/*
+  - the value is defined in the Github Secrets
+  - you then need to provide it to the npm build
+    in the container.yml
+*/
 const domain = process.env.PRODUCTION_DOMAIN;
 
 const prodConfig = {
@@ -25,7 +30,7 @@ const prodConfig = {
     new ModuleFederationPlugin({
       name: "container",
       remotes: {
-        marketing: `marketing@${domain}/marketing/remoteEntry.js`,
+        marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),

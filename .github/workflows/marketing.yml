@@ -1,15 +1,15 @@
-name: deploy-marketing
+name: deploy-container
 
 on:
   push:
     branches:
       - master
     paths:
-      - "packages/marketing/**"
+      - "packages/container/**"
 
 defaults:
   run:
-    working-directory: packages/marketing
+    working-directory: packages/container
 
 jobs:
   build:
@@ -19,8 +19,6 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm run build
-        env:
-          PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
 
       - uses: jakejarvis/s3-sync-action@master
         with:
@@ -30,8 +28,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: "us-east-2"
-          SOURCE_DIR: "packages/marketing/dist"
-          DEST_DIR: "/marketing/latest"
+          SOURCE_DIR: "packages/container/dist"
+          DEST_DIR: "/container/latest"
       - uses: awact/cloudfront-action@master
         env:
           SOURCE_PATH: "/"
