@@ -15,6 +15,12 @@ const generateClassName = createGenerateClassName({
   productionPrefix: "co",
 });
 
+/*
+  Navigation
+  - the container should use browser history
+  - all subapps should use memory history
+*/
+
 export default () => {
   return (
     <BrowserRouter>

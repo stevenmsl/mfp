@@ -111,9 +111,9 @@ export default function Album() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link to="/pricing">
+                  <Link to="/">
                     <Button variant="outlined" color="primary">
-                      Pricing
+                      Home
                     </Button>
                   </Link>
                 </Grid>

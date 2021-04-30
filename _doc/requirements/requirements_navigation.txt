@@ -1,0 +1,29 @@
+- Both the container and the individual subapps need routing features
+  - Users can navigate around to different subapps using routing logic
+    built into the container
+  - Users can navigate around in a subapp using routing logic built 
+    into the subapp itself
+  - Not all subapps will require routing
+
+- Subapps might need to add in new pages/routes all the time
+  - New routes added to a subapp shouldn't require a redeploy of the
+    container
+
+- Might need to show two or more microfrontends at the same time
+  - will occur all the time if we have some kind sidebar nav that
+    is built as a separate microfrontend
+
+- Able to use off-the-shelf routing solutions
+  - some amount of custom coding is fine
+
+- Need navigation features for sub-apps in both hosted mode and in
+  isolation
+  - developing for each environment should be easy
+  - developers should immediately be able to see what path they 
+    are visiting
+
+- If different apps need to communicate information about routing,
+  it should be done in as generic a fashion as possible
+  - each app can use a completely different navigation framework
+  - able to swap out or upgrade navigation libraries all the time
+    without requiring a rewrite of the rest of the app  
