@@ -64,6 +64,16 @@ const useStyles = makeStyles((theme) => ({
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function Album() {
+  /*
+  CSS in JS library
+  - classes.heroContent
+    - its value looks like this: makeStyles-heroContent-2
+    - a CSS with class name makeStyles-heroContent-2 will 
+      be created and added to the page as well
+  - for production builds the class name is shortened which
+    increase the chances of name collisions among multiple
+    apps   
+  */
   const classes = useStyles();
 
   return (
