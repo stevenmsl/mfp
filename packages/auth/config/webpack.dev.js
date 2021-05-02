@@ -7,37 +7,38 @@ const packageJson = require("../package.json");
 
 const devConfig = {
   mode: "development",
+  /*
+    why you need to set the public path?
+    - if you don't set it, webpack will assume
+      the main.js and the current path has the 
+      same parent
+      - if you are in http://localhost:8082/auth,
+        webpack will try to load up the main.js
+        from http://localhost:8082/main.js, which
+        is correct
+      - however, if you are in http://localhost:8082/auth/signin,
+        webpack will try to load up the main.js
+        from http://localhost:8082/auth/main.js, which
+        is wrong
+
+  */
   output: {
-    publicPath: "http://localhost:8081/",
+    publicPath: "http://localhost:8082/",
   },
   devServer: {
-    port: 8081,
+    port: 8082,
     historyApiFallback: {
       index: "/index.html",
     },
   },
   plugins: [
-    /*
-      - a global variable called "marketing"
-        will be created when the container
-        loaded up the marketing JS files
-      - webapck can then access the code
-        of marketing via the created global
-        variable from within the container
-    */
     new ModuleFederationPlugin({
-      name: "marketing",
+      name: "auth",
       filename: "remoteEntry.js",
       exposes: {
-        "./MarketingApp": "./src/bootstrap",
+        "./AuthApp": "./src/bootstrap",
       },
 
-      /*
-        - we are delegating the selection of 
-          shared modules to webpack
-        - the candidates are from the dependencies
-          section in the package.json 
-      */
       shared: packageJson.dependencies,
     }),
     new HtmlWebpackPlugin({
@@ -46,8 +47,4 @@ const devConfig = {
   ],
 };
 
-/*
-  - list devConfig in the second parameter
-    allows it to override the commonConig  
-*/
 module.exports = merge(commonConfig, devConfig);

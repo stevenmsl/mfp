@@ -21,14 +21,18 @@ import App from "./App";
     subapp that the path has changed   
 */
 
-const mount = (el, { onNavigate, defaultHistory }) => {
+const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   /*
     - use browser history if we are in isolation mode
       - to have better development experience
     - use memory history if we are in container mode
       - to not to interfere with the container routing
   */
-  const history = defaultHistory || createMemoryHistory();
+  const history =
+    defaultHistory ||
+    createMemoryHistory({
+      initialEntries: [initialPath],
+    });
 
   /*
     - notify the container that the path
@@ -45,7 +49,7 @@ const mount = (el, { onNavigate, defaultHistory }) => {
   */
   return {
     onParentNavigate({ pathname: nextPathname }) {
-      console.log("Parent navigate to", nextPathname);
+      console.log("marketing: parent navigate to", nextPathname);
       const { pathname } = history.location;
 
       /*

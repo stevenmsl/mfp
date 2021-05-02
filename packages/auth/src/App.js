@@ -1,19 +1,19 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Switch, Route, Router } from "react-router-dom";
+
 import {
   StylesProvider,
   createGenerateClassName,
 } from "@material-ui/core/styles";
 
-import MarketingApp from "./components/MarketingApp";
-import AuthApp from "./components/AuthApp";
-import Header from "./components/Header";
+import Signin from "./components/Signin";
+import Signup from "./components/Signup";
 
 /*
   - avoid name collisions for production builds
 */
 const generateClassName = createGenerateClassName({
-  productionPrefix: "co",
+  productionPrefix: "au",
 });
 
 /*
@@ -22,18 +22,17 @@ const generateClassName = createGenerateClassName({
   - all subapps should use memory history
 */
 
-export default () => {
+export default ({ history }) => {
   return (
-    <BrowserRouter>
+    <div>
       <StylesProvider generateClassName={generateClassName}>
-        <div>
-          <Header />
+        <Router history={history}>
           <Switch>
-            <Route path="/auth" component={AuthApp} />
-            <Route path="/" component={MarketingApp} />
+            <Route path="/auth/signin" component={Signin}></Route>
+            <Route path="/auth/signup" component={Signup}></Route>
           </Switch>
-        </div>
+        </Router>
       </StylesProvider>
-    </BrowserRouter>
+    </div>
   );
 };
