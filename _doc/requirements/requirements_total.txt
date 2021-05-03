@@ -1,0 +1,24 @@
+- Requirement #1
+  - Zero coupling between child projects
+  - No importing of functions/objects/classes/etc
+  - No shared state
+  - Shared libraries through MF is ok
+
+- Requirement #2
+  - Near-zero coupling between container and child apps
+  - Container shouldn't assume that a child is using 
+    a particular framework
+  - Any necessary communication done with callbacks or
+    simple events
+
+- Requirement # 3
+  - CSS from one project shouldn't affect another
+
+- Requirement #4
+  - Version control (monorepo vs separate) shouldn't 
+    have any impact on the overall project
+
+- Requirement #5
+  - Container should be able to decide to always use the
+    latest version of a microfrontend or specify a specific
+    version

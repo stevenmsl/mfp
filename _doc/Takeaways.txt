@@ -1,0 +1,7 @@
+- Requirements drive architecture
+- Always ask "if I have to change this app in the future, 
+  will I have to change another app?"
+- Scope your CSS
+- MFE's might cause issues in prod that you don't see
+  in dev
+
