@@ -34,6 +34,7 @@ const prodConfig = {
       name: "container",
       remotes: {
         marketing: `marketing@/marketing/latest/remoteEntry.js`,
+        auth: `auth@/auth/latest/remoteEntry.js`,
       },
       /*
         - multiple smaller-size JS files will be created
