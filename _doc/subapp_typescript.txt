@@ -1,0 +1,15 @@
+- webpack needs to resolve ts and tsx files
+  while bundling
+  - code sample: #SUBAPPTS01
+
+- babel needs to know it needs compile TS
+  - code sample: #SUBAPPTS02
+
+- both TS and TSX can be exposed
+  - code sample: #SUBAPPTS03
+
+- tsconfig.json is not really needed by webpack, 
+  but we need one to address an type-checking 
+  error in the code
+  - code sample: #SUBAPPTS04 
+  

@@ -62,10 +62,25 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   };
 };
 
+/*
+  - #SUBAPPTS04
+  - you need to add tsconfig.json and set the include
+    option so you won't see the "process" can't be found
+    error:
+    "include": [
+      "./src"
+    ] 
+  - tsconfig.json  
+*/
+
 if (process.env.NODE_ENV === "development") {
   const devRoot = document.querySelector("#_marketing-dev-root");
   if (devRoot) {
-    mount(devRoot, { defaultHistory: createBrowserHistory() });
+    mount(devRoot, {
+      onNavigate: undefined,
+      defaultHistory: createBrowserHistory<any>(),
+      initialPath: undefined,
+    });
   }
 }
 

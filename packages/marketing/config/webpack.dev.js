@@ -28,8 +28,9 @@ const devConfig = {
     new ModuleFederationPlugin({
       name: "marketing",
       filename: "remoteEntry.js",
+      /* #SUBAPPTS03 */
       exposes: {
-        "./MarketingApp": "./src/bootstrap",
+        "./MarketingApp": "./src/bootstrap", // TSX file
       },
 
       /*
